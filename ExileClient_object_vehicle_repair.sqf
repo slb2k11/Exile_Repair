@@ -9,6 +9,10 @@
  
 private["_vehicle","_availableHitpoints","_fixable","_equippedMagazines"];
 _vehicle = _this select 0;
+if (ExileClientPlayerIsInCombat) exitWith
+{
+        ["RepairFailedWarning", ["You are in combat!"]] call ExileClient_gui_notification_event_addNotification;
+};
 if (vehicle player isEqualTo _vehicle) exitWith 
 {
 	["RepairFailedWarning", ["Are you serious?"]] call ExileClient_gui_notification_event_addNotification;
